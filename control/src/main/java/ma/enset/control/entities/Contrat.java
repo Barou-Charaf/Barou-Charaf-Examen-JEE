@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 import ma.enset.control.enums.StatusContrat;
 
@@ -16,6 +17,7 @@ import java.util.List;
 @Entity
 @Data @AllArgsConstructor @NoArgsConstructor @SuperBuilder
 @Inheritance(strategy = InheritanceType.JOINED)
+@ToString
 public abstract class Contrat {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

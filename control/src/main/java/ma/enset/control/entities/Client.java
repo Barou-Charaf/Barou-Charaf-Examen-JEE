@@ -1,10 +1,7 @@
 package ma.enset.control.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
@@ -14,6 +11,7 @@ import java.util.List;
 @Entity
 @Data
 @AllArgsConstructor @NoArgsConstructor @Builder
+@ToString
 public class Client {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

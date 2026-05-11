@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 import ma.enset.control.enums.TypeLogement;
 
@@ -17,6 +18,7 @@ import ma.enset.control.enums.TypeLogement;
 @AllArgsConstructor
 @NoArgsConstructor
 @DiscriminatorValue("CH")
+@ToString
 public class ContratHabitation extends Contrat {
   private TypeLogement typeLogement;
   private String adreselogement;

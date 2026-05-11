@@ -1,10 +1,7 @@
 package ma.enset.control.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import ma.enset.control.enums.TypePaiement;
 
 import java.time.LocalDateTime;
@@ -17,6 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Data
 @Builder
+@ToString
 public class Paiement {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
