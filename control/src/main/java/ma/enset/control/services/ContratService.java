@@ -17,9 +17,9 @@ import java.util.List;
 public interface ContratService {
     Page<ContratResponse> findAll(Pageable pageable);
     ContratResponse findById(Long id);
-    ContratAutomobileResponse createAuto(ContratAutomobileRequest request);
-    ContratHabitationResponse createHome(ContratHabitationRequest request);
-    ContratSanteResponse createHealth(ContratSanteRequest request);
+    ContratResponse createAuto(ContratAutomobileRequest request);
+    ContratResponse createHome(ContratHabitationRequest request);
+    ContratResponse createHealth(ContratSanteRequest request);
     ContratResponse update(Long id, ContratAutomobileRequest request);
     ContratResponse update(Long id, ContratHabitationRequest request);
     ContratResponse update(Long id, ContratSanteRequest request);

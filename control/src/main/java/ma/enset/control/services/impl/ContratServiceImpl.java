@@ -47,38 +47,38 @@ public class ContratServiceImpl implements ContratService {
 
     @Override
     @Transactional
-    public ContratAutomobileResponse createAuto(ContratAutomobileRequest request) {
+    public ContratResponse createAuto(ContratAutomobileRequest request) {
         Client client = clientRepository.findById(request.clientId())
                 .orElseThrow(() -> new ResourceNotFoundException("Client", request.clientId()));
 
         ContratAutomobile contrat = contratMapper.toAutoEntity(request);
         contrat.setClient(client);
         contrat = contratRepository.save(contrat);
-        return contratMapper.toAutoResponse(contrat);
+        return contratMapper.toResponse(contrat);
     }
 
     @Override
     @Transactional
-    public ContratHabitationResponse createHome(ContratHabitationRequest request) {
+    public ContratResponse createHome(ContratHabitationRequest request) {
         Client client = clientRepository.findById(request.clientId())
                 .orElseThrow(() -> new ResourceNotFoundException("Client", request.clientId()));
 
         ContratHabitation contrat = contratMapper.toHomeEntity(request);
         contrat.setClient(client);
         contrat = contratRepository.save(contrat);
-        return contratMapper.toHomeResponse(contrat);
+        return contratMapper.toResponse(contrat);
     }
 
     @Override
     @Transactional
-    public ContratSanteResponse createHealth(ContratSanteRequest request) {
+    public ContratResponse createHealth(ContratSanteRequest request) {
         Client client = clientRepository.findById(request.clientId())
                 .orElseThrow(() -> new ResourceNotFoundException("Client", request.clientId()));
 
         ContratSante contrat = contratMapper.toHealthEntity(request);
         contrat.setClient(client);
         contrat = contratRepository.save(contrat);
-        return contratMapper.toHealthResponse(contrat);
+        return contratMapper.toResponse(contrat);
     }
 
     @Override

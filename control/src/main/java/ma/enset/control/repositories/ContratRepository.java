@@ -1,6 +1,7 @@
 package ma.enset.control.repositories;
 
 import ma.enset.control.entities.Contrat;
+import ma.enset.control.entities.ContratAutomobile;
 import ma.enset.control.enums.StatusContrat;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -22,8 +23,8 @@ public interface ContratRepository extends JpaRepository<Contrat,Long> {
     @Query("SELECT c FROM Contrat c WHERE c.client.id = :clientId")
     List<Contrat> findContractsByClientId(@Param("clientId") Long clientId);
 
-    @Query("SELECT c FROM ContratAutomobile c WHERE c.numeroImmatriculation LIKE %:immatriculation%")
-    List<Contrat> searchAutoByImmatriculation(@Param("immatriculation") String immatriculation);
+    @Query("SELECT c FROM ContratAutomobile c WHERE c.numeroImmatriculation LIKE CONCAT('%', :immatriculation, '%')")
+    List<ContratAutomobile> searchAutoByImmatriculation(@Param("immatriculation") String immatriculation);
 
     long countByStatus(StatusContrat status);
 }

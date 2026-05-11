@@ -31,6 +31,7 @@ public interface ContratMapper {
     @Mapping(target = "dateSouscription", expression = "java(request.dateSouscription() != null ? request.dateSouscription() : LocalDateTime.now())")
     @Mapping(target = "datevalidation", ignore = true)
     @Mapping(target = "client", ignore = true)
+    @Mapping(target = "adreselogement", source = "adresseLogement")
     ContratHabitation toHomeEntity(ContratHabitationRequest request);
 
     @Mapping(target = "id", ignore = true)
@@ -39,6 +40,7 @@ public interface ContratMapper {
     @Mapping(target = "dateSouscription", expression = "java(request.dateSouscription() != null ? request.dateSouscription() : LocalDateTime.now())")
     @Mapping(target = "datevalidation", ignore = true)
     @Mapping(target = "client", ignore = true)
+    @Mapping(target = "niveauCouvertur", source = "niveauCouverture")
     ContratSante toHealthEntity(ContratSanteRequest request);
 
     @Mapping(target = "clientName", expression = "java(contrat.getClient() != null ? contrat.getClient().getName() : null)")
@@ -52,10 +54,12 @@ public interface ContratMapper {
 
     @Mapping(target = "clientName", expression = "java(contrat.getClient() != null ? contrat.getClient().getName() : null)")
     @Mapping(target = "clientId", expression = "java(contrat.getClient() != null ? contrat.getClient().getId() : null)")
+    @Mapping(target = "adresseLogement", source = "adreselogement")
     ContratHabitationResponse toHomeResponse(ContratHabitation contrat);
 
     @Mapping(target = "clientName", expression = "java(contrat.getClient() != null ? contrat.getClient().getName() : null)")
     @Mapping(target = "clientId", expression = "java(contrat.getClient() != null ? contrat.getClient().getId() : null)")
+    @Mapping(target = "niveauCouverture", source = "niveauCouvertur")
     ContratSanteResponse toHealthResponse(ContratSante contrat);
 
     default String getContratType(Contrat contrat) {
